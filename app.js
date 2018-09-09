@@ -1,4 +1,6 @@
 console.log('hello,world!!!')
+import _ from 'lodash'
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // web consoleでappをいじくれるようにする
@@ -13,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {id: 3, name: 'いちご', price: 400},
         {id: 4, name: 'おれんじ', price: 300},
         {id: 5, name: 'めろん', price: 500}
-      ]
+      ],
+      order: false
 
     },
     computed: {
@@ -23,7 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, this)
       },
       limited: function () {
-        return this.matched.slice(0, this.limit)
+        return this.sorted.slice(0, this.limit)
+      },
+      sorted: function () {
+        return _.orderBy(this.matched, 'price', this.order ? 'desc' : 'asc')
       }
     }
   })
