@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.app = new Vue({
     el: '#app',
     data: {
-      list: ['Java', 'Ruby', 'Python'],
       message: 'Hello,Vue.js',
       show: true,
       count: 0,
@@ -13,7 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
       isActive: true,
       textColor: 'res',
       bgColor: 'lightGray',
-      radius: 50
+      radius: 50,
+      list: [
+        {id: 1, name: 'スライム', hp: 100},
+        {id: 2, name: 'ドラゴン', hp: 200},
+        {id: 3, name: 'ゴブリン', hp: 500}
+      ],
+      name: ''
     },
     methods: {
       handleClick: function (e) {
@@ -21,6 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       increment: function () {
         this.count++;
+      },
+      // 追加
+      doAdd: function () {
+        var max = this.list.reduce((a, b) => {
+          return a > b.id ? a : b.id
+        }, 0)
+        this.list.push({
+          id: max + 1,
+          name: this.name,
+          hp: 500
+        })
+        this.name = ''
+      },
+      doRemove: function (index) {
+        this.list.splice(index, 1)
       }
     }
   })

@@ -21,9 +21,6 @@
 <div id="app">
     {{ message }}
     <input v-model="message"/>
-    <ol>
-        <li v-for="lang in list">{{lang}}</li>
-    </ol>
     <button v-on:click="handleClick">Click me</button>
     <button v-on:click="show=!show">toggle</button>
     <transition>
@@ -39,6 +36,20 @@
 
     </svg>
     <input type="range" min="0" max="100" v-model="radius">
+    <p>list rendering</p>
+    <ul>
+        <li v-for="(item,index) in list" :key="item.id">
+            ID.{{item.id}} {{item.name}} HP.{{item.hp}}
+            <button @click="doRemove(index)">Delete</button>
+
+        </li>
+
+    </ul>
+    <div>
+        名前 <input v-model:name="name">
+        <button @click="doAdd">add</button>
+
+    </div>
 </div>
 
 </body>
