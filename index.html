@@ -29,6 +29,16 @@
     <transition>
         <p v-if="show">Hello,vue</p>
     </transition>
+    <p>{{count}} 回クリック</p>
+    <button @click="increment">カウントアップ</button>
+    <p v-bind:class="{child: isChild,'is-active':isActive}"> Text</p>
+    <p v-bind:style="{color: textColor,backgroundColor:bgColor}"> Text</p>
+    <p>svg</p>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <circle cx="100" cy="75" :r="radius" fill="lightpink"></circle>
+
+    </svg>
+    <input type="range" min="0" max="100" v-model="radius">
 </div>
 
 </body>

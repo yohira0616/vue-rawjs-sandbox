@@ -7,11 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       list: ['Java', 'Ruby', 'Python'],
       message: 'Hello,Vue.js',
-      show: true
+      show: true,
+      count: 0,
+      isChild: true,
+      isActive: true,
+      textColor: 'res',
+      bgColor: 'lightGray',
+      radius: 50
     },
     methods: {
       handleClick: function (e) {
         alert(e.target)
+      },
+      increment: function () {
+        this.count++;
       }
     }
   })
