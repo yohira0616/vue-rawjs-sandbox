@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       list: ['Java', 'Ruby', 'Python'],
       message: 'Hello,Vue.js'
+    },
+    methods:{
+      handleClick:function(e){
+        alert(e.target)
+      }
     }
   })
 })

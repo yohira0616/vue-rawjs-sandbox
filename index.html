@@ -10,9 +10,11 @@
 <p>It works!</p>
 <div id="app">
     {{ message }}
+    <input v-model="message"/>
     <ol>
         <li v-for="lang in list">{{lang}}</li>
     </ol>
+    <button v-on:click="handleClick">Click me</button>
 </div>
 
 </body>
