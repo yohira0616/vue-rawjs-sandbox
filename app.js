@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.app = new Vue({
     el: '#app',
     data: {
+      list: ['Java', 'Ruby', 'Python'],
       message: 'Hello,Vue.js'
     }
   })
