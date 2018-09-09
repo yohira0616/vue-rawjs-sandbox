@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       name: ''
     },
+    mounted: function(){
+      console.log(this.$el)
+      // reference
+      console.log(this.$refs.hello)
+      console.log(this.$refs.hello.textContent)
+    },
     methods: {
       handleClick: function (e) {
         alert(e.target)
