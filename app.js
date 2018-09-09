@@ -1,6 +1,11 @@
 console.log('hello,world!!!')
 import _ from 'lodash'
 
+Vue.component('fruit', {
+  template: '<li>{{name}} {{price}} 円</li>',
+  props: ['name', 'price']
+})
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // web consoleでappをいじくれるようにする
