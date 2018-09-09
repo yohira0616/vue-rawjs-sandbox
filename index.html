@@ -18,17 +18,7 @@
 </head>
 <body>
 <div id="app">
-    <input v-model.number="budget">円以下に絞り込む
-    <input v-model.number="limit">件を表示
-    <p>{{matched.length}}件中{{limited.length}}件を表示中</p>
-    <ul>
-        <fruit v-for="item in limited" :key="item.id" :name="item.name" :price="item.price">
-        </fruit>
-
-    </ul>
-    <button @click="order=!order">切り替え</button>
-    <p>{{price | localeNum}}</p>
-    <my-component></my-component>
+    <comp-child @childs-event="parentsMethod"></comp-child>
 </div>
 
 </body>
