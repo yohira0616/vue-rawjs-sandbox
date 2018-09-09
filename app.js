@@ -1,15 +1,16 @@
 console.log('hello,world!!!')
 import _ from 'lodash'
 
-Vue.component('my-component',{
-  template:'<p>My Component</p>'
-})
-
 
 document.addEventListener('DOMContentLoaded', () => {
   // web consoleでappをいじくれるようにする
   window.app = new Vue({
     el: '#app',
+    components: {
+      'my-component': {
+        template: '<p>Scoped My Component</p>'
+      }
+    },
     data: {
       budget: 300,
       limit: 2,
