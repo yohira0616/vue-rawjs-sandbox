@@ -3,7 +3,16 @@ import _ from 'lodash'
 
 Vue.component('fruit', {
   template: '<li>{{name}} {{price}} 円</li>',
-  props: ['name', 'price']
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    price: {
+      type: Number,
+      required: true
+    }
+  }
 })
 
 
