@@ -16,8 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {id: 4, name: 'おれんじ', price: 300},
         {id: 5, name: 'めろん', price: 500}
       ],
-      order: false
+      order: false,
+      price: 19800
 
+    },
+    filters: {
+      localeNum: function (val) {
+        return val.toLocaleString()
+      }
     },
     computed: {
       matched: function () {
