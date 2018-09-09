@@ -1,6 +1,10 @@
 console.log('hello,world!!!')
 import _ from 'lodash'
 
+Vue.component('my-component',{
+  template:'<p>My Component</p>'
+})
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // web consoleでappをいじくれるようにする
