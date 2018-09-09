@@ -5,48 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
   window.app = new Vue({
     el: '#app',
     data: {
-      message: 'Hello,Vue.js',
-      show: true,
-      count: 0,
-      isChild: true,
-      isActive: true,
-      textColor: 'res',
-      bgColor: 'lightGray',
-      radius: 50,
+      budget: 300,
+      limit: 2,
       list: [
-        {id: 1, name: 'スライム', hp: 100},
-        {id: 2, name: 'ドラゴン', hp: 200},
-        {id: 3, name: 'ゴブリン', hp: 500}
-      ],
-      name: ''
+        {id: 1, name: 'りんご', price: 100},
+        {id: 2, name: 'ばなな', price: 200},
+        {id: 3, name: 'いちご', price: 400},
+        {id: 4, name: 'おれんじ', price: 300},
+        {id: 5, name: 'めろん', price: 500}
+      ]
+
     },
-    mounted: function(){
-      console.log(this.$el)
-      // reference
-      console.log(this.$refs.hello)
-      console.log(this.$refs.hello.textContent)
-    },
-    methods: {
-      handleClick: function (e) {
-        alert(e.target)
+    computed: {
+      matched: function () {
+        return this.list.filter((el) => {
+          return el.price <= this.budget
+        }, this)
       },
-      increment: function () {
-        this.count++;
-      },
-      // 追加
-      doAdd: function () {
-        var max = this.list.reduce((a, b) => {
-          return a > b.id ? a : b.id
-        }, 0)
-        this.list.push({
-          id: max + 1,
-          name: this.name,
-          hp: 500
-        })
-        this.name = ''
-      },
-      doRemove: function (index) {
-        this.list.splice(index, 1)
+      limited: function () {
+        return this.matched.slice(0, this.limit)
       }
     }
   })

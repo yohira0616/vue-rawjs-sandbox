@@ -17,40 +17,16 @@
     </style>
 </head>
 <body>
-<p>It works!</p>
 <div id="app">
-    {{ message }}
-    <input v-model="message"/>
-    <button v-on:click="handleClick">Click me</button>
-    <button v-on:click="show=!show">toggle</button>
-    <transition>
-        <p v-if="show">Hello,vue</p>
-    </transition>
-    <p>{{count}} 回クリック</p>
-    <button @click="increment">カウントアップ</button>
-    <p v-bind:class="{child: isChild,'is-active':isActive}"> Text</p>
-    <p v-bind:style="{color: textColor,backgroundColor:bgColor}"> Text</p>
-    <p>svg</p>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <circle cx="100" cy="75" :r="radius" fill="lightpink"></circle>
-
-    </svg>
-    <input type="range" min="0" max="100" v-model="radius">
-    <p>list rendering</p>
+    <input v-model.number="budget">円以下に絞り込む
+    <input v-model.number="limit">件を表示
+    <p>{{matched.length}}件中{{limited.length}}件を表示中</p>
     <ul>
-        <li v-for="(item,index) in list" :key="item.id">
-            ID.{{item.id}} {{item.name}} HP.{{item.hp}}
-            <button @click="doRemove(index)">Delete</button>
-
+        <li v-for="item in limited" :key="item.id">
+            {{ item.name}} {{item.price}} 円
         </li>
 
     </ul>
-    <div>
-        名前 <input v-model:name="name">
-        <button @click="doAdd">add</button>
-
-    </div>
-    <p ref="hello">Hello</p>
 </div>
 
 </body>
