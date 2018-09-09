@@ -5,6 +5,16 @@
     <title>vue-webpack</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="output.js"></script>
+    <style>
+        .v-enter-active, .v-leave-active {
+            transition: opacity 1s;
+        }
+
+        .v-enter, .v-leave-to {
+            opacity: 0;
+        }
+
+    </style>
 </head>
 <body>
 <p>It works!</p>
@@ -15,6 +25,10 @@
         <li v-for="lang in list">{{lang}}</li>
     </ol>
     <button v-on:click="handleClick">Click me</button>
+    <button v-on:click="show=!show">toggle</button>
+    <transition>
+        <p v-if="show">Hello,vue</p>
+    </transition>
 </div>
 
 </body>
